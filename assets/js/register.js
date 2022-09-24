@@ -98,7 +98,7 @@ form.addEventListener('submit', (e) => {
         password.value = '';
         confirmP.value = '';
         alert('Conta criada com sucesso')
-        window.location.href = '../page/index.html';
+        window.location.href = './index.html';
     
     }
 });
