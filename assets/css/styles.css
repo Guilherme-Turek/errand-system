@@ -30,6 +30,11 @@ img {
     width: 50vw
 }
 
+legend {
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
+
 form {
     align-items: center;
     display: flex;
