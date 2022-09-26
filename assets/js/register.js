@@ -84,6 +84,11 @@ form.addEventListener('submit', (e) => {
         spanConfirm.style.display  = 'none';
     }
 
+    if(usersList.find(usersList => usersList.username === username.value)){
+        messageUsername.textContent = 'Usuário já existe, tente novamente!'
+        return
+    }
+
     if(username.value.length >= 4 && password.value.length >= 6 && confirmP.value == password.value){
         const newUser = {
             username : username.value,
