@@ -32,8 +32,8 @@ function createTasks(tasksArray) {
                 <td>${task.descricao}</td>
                 <td>${task.detalhamento}</td>
                 <td>
-                    <button onclick= "editTask(${task.id})">Editar</button>
-                    <button onclick= "eraseTask(${task.id})">Apagar</button>
+                    <button class="button-action" style="background-color: green;" onclick= "editTask(${task.id})"><img src="./assets/img/edit.png" alt="Apagar"></button>
+                    <button class="button-action" style="background-color: red;" onclick= "eraseTask(${task.id})"><img src="./assets/img/trash.png" alt="Apagar"></button>
                 </td>
             </tr>
         `
@@ -94,15 +94,20 @@ function editTask(id) {
 
     message.textContent = `Modo de edição ativo.`
     message.style.color = 'black'
+    message.style.textTransform = 'uppercase'
     description.focus();
 
     buttonEdit.addEventListener('click', () => {
+
+        if(!description.value || !detailing.value){
+            message.textContent = 'Por favor, preencha os dois campos'
+            message.style.color = 'red'
+            return
+        }
         let findEdit = tasksArray.findIndex((task) => task.id === id);
     
         tasksArray[findEdit].descricao = description.value
-        console.log(tasksArray[findEdit].descricao)
         tasksArray[findEdit].detalhamento = detailing.value
-        console.log(tasksArray[findEdit].detalhamento)
 
         localStorage.setItem('users-list', JSON.stringify(usersArray));
 

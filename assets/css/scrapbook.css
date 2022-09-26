@@ -22,7 +22,8 @@ header {
 
 header p {
     display: flex;
-    margin: 10px 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 header button {
