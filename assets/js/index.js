@@ -25,15 +25,19 @@ form.addEventListener('submit', (e) => {
     }
 
    password.classList.remove('error')
-        
-    if(account.find(account => account.username === username.value) && account.find(account => account.password === password.value)){
+    
+   
+    if (!account) {
+        messageUsername.textContent = 'Usuário não encontrado. Verifique usuário e senha ou crie uma conta!';
+        username.classList.add('error');
+        return
+    } else if(account.find(account => account.username === username.value) && account.find(account => account.password === password.value)){
         window.location.href = './scrapbook.html';
         sessionStorage.setItem('user-logged', username.value);
         username.value = '';
         password.classList.remove('error');
-        
-        return 
-    }
+        return  
+    } 
     messageUsername.textContent = 'Usuário não encontrado. Verifique usuário e senha ou crie uma conta!';
     username.classList.add('error');
     password.classList.add('error');
