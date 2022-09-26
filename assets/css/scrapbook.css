@@ -32,6 +32,7 @@ header button {
     margin: 5px;
     padding: 3px;
     width: 5vw;
+    cursor: pointer;
 }
 
 .card-task {

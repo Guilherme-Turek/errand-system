@@ -15,6 +15,8 @@ const detailing       = document.getElementById('input-detailing');
 const message         = document.getElementById('message');
 const tbody           = document.getElementById('list'); 
 const saveButton      = document.getElementsByTagName('button')[1];
+const buttonExit = document.querySelector('#exit');
+buttonExit.addEventListener('click', logOut)
 
 
 function createTasks(tasksArray) {
@@ -129,13 +131,31 @@ function eraseTask(id) {
 
     const newTasksArray = [];
 
-    if(findTask != -1){
-        tasksArray.splice(findTask, 1)
-        location.reload()
-    };
+    const confirmErase = confirm('Deseja excluir o recado?')
 
-    localStorage.setItem('users-list', JSON.stringify(usersArray));
+    if(confirmErase == true){
+        if(findTask != -1){
+            tasksArray.splice(findTask, 1)
+            location.reload()
+        };
+        localStorage.setItem('users-list', JSON.stringify(usersArray));
 
-    tasksArray = newTasksArray
-    createTasks(tasksArray)
+        tasksArray = newTasksArray
+        createTasks(tasksArray)
+    } 
+
+    alert('Exclusão cancelada')
+    
+};
+
+function logOut(){
+     
+    const confirmExit = confirm('Deseja sair do sistema?')
+
+    if(confirmExit == true){
+        window.location.href = './index.html';
+        return
+    }
+
+    alert('Saída cancelda')
 };
