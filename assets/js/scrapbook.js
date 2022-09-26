@@ -94,6 +94,11 @@ function editTask(id) {
     div.replaceChild(buttonEdit, saveButton)
     div.appendChild(cancelEdit)
 
+    let findEdit = tasksArray.findIndex((task) => task.id === id);
+    
+        description.value = tasksArray[findEdit].descricao
+        detailing.value   = tasksArray[findEdit].detalhamento
+
     message.textContent = `Modo de edição ativo.`
     message.style.color = 'black'
     message.style.textTransform = 'uppercase'
